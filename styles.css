@@ -91,7 +91,7 @@ dialog > h1 {
 
 input[type="text"],
 input[type="number"] {
-    width: 50%;
+    width: 60%;
     height: 50px;
     border: 1px solid #9fa0a1;
     outline: none;
