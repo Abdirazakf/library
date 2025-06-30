@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 html, body {
     height:100%;
 }
@@ -31,7 +35,6 @@ header > h1 {
     border-radius: 20px;
     background-color: white;
     display: grid;
-    /* grid-auto-flow: column; */
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: repeat(autofit, minmax(100px, 200px));
     gap: 20px;
@@ -39,11 +42,6 @@ header > h1 {
 }
 
 .add-card {
-    border: 1px solid black;
-    min-width: 200px;
-    min-height: 200px;
-    max-height: 300px;
-    padding: 25px;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -64,17 +62,40 @@ header > h1 {
     cursor: pointer;
 }
 
+.add-card,
 .card {
     border: 1px solid black;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
     min-width: 200px;
     min-height: 200px;
     max-height: 300px;
-    padding: 25px;
+    padding: 15px;
     transition: 0.2s;
+}
+
+.card > div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.card > div > button {
+    background-color: red;
+    border: none;
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} 
+button > img {
+    height: 12px;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    cursor: pointer;
 }
 
 footer {
