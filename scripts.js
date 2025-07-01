@@ -1,11 +1,11 @@
 const form = document.querySelector("form")
 const bookContainer = document.querySelector(".book-container")
-const bookCard = document.querySelectorAll(".card")
 const addBook = document.querySelector(".add-card")
 const addBookModal = document.querySelector(".add-book-modal")
 const bookInfoModal = document.querySelector(".book-info-modal")
 const submitButton = document.querySelector(".submit-button")
 const closeButton = document.querySelector(".close-button")
+const closeButton2 = document.querySelector(".close-button-2")
 const myLibrary = [];
 
 form.addEventListener("submit",(event) =>{
@@ -21,9 +21,12 @@ addBook.addEventListener("click",() =>{
 
 closeButton.addEventListener("click",() =>{
     addBookModal.close();
-    bookInfoModal.close();
     form.reset();
 });
+
+closeButton2.addEventListener("click", ()=> {
+    bookInfoModal.close();
+})
 
 function Book(title,author,pages,book_url,read) {
     this.title = title;
@@ -64,7 +67,7 @@ function addLibraryToDisplay(myLibrary){
         newCard.addEventListener("click",() => {
             bookInfoModal.showModal();
         })
-        
+
         deleteButtonContainer.appendChild(delButton)
         newCard.appendChild(deleteButtonContainer)
         newCard.appendChild(bookTitle)
