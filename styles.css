@@ -87,6 +87,12 @@ header > h1 {
     justify-content: flex-end;
 }
 
+.card > h3 {
+    margin-top: 100px;
+    text-align: center;
+    color: black;
+}
+
 .delete-button {
     background-color: red;
     background-image: url(./assets/img/close_24dp_FFFFFF_FILL0_wght700_GRAD0_opsz24.svg);

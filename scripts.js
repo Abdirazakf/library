@@ -41,10 +41,25 @@ function addBookToLibrary(){
     
     const newBook = new Book(title,author,pages,book_url,read);
     myLibrary.push(newBook);
+    addLibraryToDisplay(myLibrary);
     console.log(myLibrary);
+}
 
-    if (myLibrary.length > 0){
-        for (let i = 0; i < myLibrary.length; i++){
-        }
-    }
+function addLibraryToDisplay(myLibrary){
+    bookContainer.innerHTML = ""
+    bookContainer.appendChild(addBook)
+    myLibrary.forEach((book) =>{
+        const newCard = document.createElement("div")
+        const deleteButtonContainer = document.createElement("div")
+        const delButton = document.createElement("button")
+        const bookTitle = document.createElement("h3")
+        bookTitle.textContent = book.title
+        delButton.classList.add("delete-button")
+        newCard.classList.add("card")
+        newCard.style.background = `url(${book.book_url})`
+        deleteButtonContainer.appendChild(delButton)
+        newCard.appendChild(deleteButtonContainer)
+        newCard.appendChild(bookTitle)
+        bookContainer.appendChild(newCard)
+    })
 }
