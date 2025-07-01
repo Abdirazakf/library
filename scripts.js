@@ -1,5 +1,5 @@
 const form = document.querySelector("form")
-const card = document.querySelector(".card")
+const bookContainer = document.querySelector(".book-container")
 const addBook = document.querySelector(".add-card")
 const addBookModal = document.querySelector("dialog")
 const submitButton = document.querySelector(".submit-button")
@@ -29,6 +29,7 @@ function Book(title,author,pages,book_url,read) {
     this.pages = pages;
     this.book_url = book_url;
     this.read = read;
+    this.uuid = self.crypto.randomUUID()
 }
 
 function addBookToLibrary(){
@@ -41,4 +42,9 @@ function addBookToLibrary(){
     const newBook = new Book(title,author,pages,book_url,read);
     myLibrary.push(newBook);
     console.log(myLibrary);
+
+    if (myLibrary.length > 0){
+        for (let i = 0; i < myLibrary.length; i++){
+        }
+    }
 }
