@@ -1,9 +1,12 @@
 const form = document.querySelector("form")
 const bookContainer = document.querySelector(".book-container")
+const bookCard = document.querySelectorAll(".card")
 const addBook = document.querySelector(".add-card")
-const addBookModal = document.querySelector("dialog")
+const addBookModal = document.querySelector(".add-book-modal")
+const bookInfoModal = document.querySelector(".book-info-modal")
 const submitButton = document.querySelector(".submit-button")
 const closeButton = document.querySelector(".close-button")
+const myLibrary = [];
 
 form.addEventListener("submit",(event) =>{
     event.preventDefault();
@@ -18,10 +21,9 @@ addBook.addEventListener("click",() =>{
 
 closeButton.addEventListener("click",() =>{
     addBookModal.close();
+    bookInfoModal.close();
     form.reset();
 });
-
-const myLibrary = [];
 
 function Book(title,author,pages,book_url,read) {
     this.title = title;
@@ -53,10 +55,16 @@ function addLibraryToDisplay(myLibrary){
         const deleteButtonContainer = document.createElement("div")
         const delButton = document.createElement("button")
         const bookTitle = document.createElement("h3")
+
         bookTitle.textContent = book.title
         delButton.classList.add("delete-button")
         newCard.classList.add("card")
         newCard.style.background = `url(${book.book_url})`
+
+        newCard.addEventListener("click",() => {
+            bookInfoModal.showModal();
+        })
+        
         deleteButtonContainer.appendChild(delButton)
         newCard.appendChild(deleteButtonContainer)
         newCard.appendChild(bookTitle)
