@@ -88,9 +88,6 @@ function addLibraryToDisplay(myLibrary){
             if (index !== -1){
                 myLibrary.splice(index,1)
             }
-            
-            console.log(myLibrary)
-            console.log(targetUUID)
         })
 
         deleteButtonContainer.appendChild(delButton)
