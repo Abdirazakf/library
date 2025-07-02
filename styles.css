@@ -143,17 +143,25 @@ dialog {
 .info-container {
     display: flex;
     justify-content: space-between;
+    gap: 20px;
     height: 100%;
+    overflow: auto;
+}
+
+.info-container > div {
+    min-width: 180px;
 }
 
 .right-side {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    flex-shrink: 0;
 }
 
 .right-side > img {
     height: 80%;
+    min-width: 300px;
 }
 
 .close-button-2 {
