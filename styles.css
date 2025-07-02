@@ -153,7 +153,7 @@ dialog {
 }
 
 .right-side > img {
-    height: 500px;
+    height: 50%;
 }
 
 .close-button-2 {
@@ -171,9 +171,9 @@ form > p {
     margin: 5px;
 }
 
-/* dialog > h1 {
+dialog > h1 {
     margin: 0;
-} */
+}
 
 input[type="text"],
 input[type="number"] {
