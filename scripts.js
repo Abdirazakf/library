@@ -1,11 +1,15 @@
-const form = document.querySelector("form")
-const bookContainer = document.querySelector(".book-container")
-const addBook = document.querySelector(".add-card")
-const addBookModal = document.querySelector(".add-book-modal")
-const bookInfoModal = document.querySelector(".book-info-modal")
-const submitButton = document.querySelector(".submit-button")
-const closeButton = document.querySelector(".close-button")
-const closeButton2 = document.querySelector(".close-button-2")
+const form = document.querySelector("form");
+const bookContainer = document.querySelector(".book-container");
+const addBook = document.querySelector(".add-card");
+const addBookModal = document.querySelector(".add-book-modal");
+const bookInfoModal = document.querySelector(".book-info-modal");
+const modalTitle = document.querySelector(".book-title")
+const modalAuthor = document.querySelector(".book-author")
+const modalPages = document.querySelector(".book-pages")
+const modalBookCover = document.querySelector(".right-side > img")
+const submitButton = document.querySelector(".submit-button");
+const closeButton = document.querySelector(".close-button");
+const closeButton2 = document.querySelector(".close-button-2");
 const myLibrary = [];
 
 form.addEventListener("submit",(event) =>{
@@ -65,6 +69,10 @@ function addLibraryToDisplay(myLibrary){
         newCard.style.background = `url(${book.book_url})`
 
         newCard.addEventListener("click",() => {
+            modalTitle.textContent = `Title: ${book.title}`
+            modalAuthor.textContent = `Author: ${book.author}`
+            modalPages.textContent = `# of Pages: ${book.pages}`
+            modalBookCover.setAttribute("src", book.book_url)
             bookInfoModal.showModal();
         })
 
