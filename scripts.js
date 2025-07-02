@@ -67,6 +67,7 @@ function addLibraryToDisplay(myLibrary){
         delButton.classList.add("delete-button")
         newCard.classList.add("card")
         newCard.style.background = `url(${book.book_url})`
+        newCard.dataset.indexNumber = book.uuid
 
         newCard.addEventListener("click",() => {
             modalTitle.textContent = `Title: ${book.title}`
