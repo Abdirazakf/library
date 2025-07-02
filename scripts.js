@@ -10,6 +10,8 @@ const modalBookCover = document.querySelector(".right-side > img")
 const submitButton = document.querySelector(".submit-button");
 const closeButton = document.querySelector(".close-button");
 const closeButton2 = document.querySelector(".close-button-2");
+const readSwitch = document.querySelector("#switch")
+let currentBookUUID = null;
 const myLibrary = [];
 
 form.addEventListener("submit",(event) =>{
@@ -41,6 +43,10 @@ function Book(title,author,pages,book_url,read) {
     this.uuid = 'a' + self.crypto.randomUUID()
 }
 
+Book.prototype.toggleRead = function () {
+    this.read = !this.read
+}
+
 function addBookToLibrary(){
     let title = document.querySelector("input[id='title'").value;
     let author = document.querySelector("input[id='author'").value;
@@ -51,7 +57,6 @@ function addBookToLibrary(){
     const newBook = new Book(title,author,pages,book_url,read);
     myLibrary.push(newBook);
     addLibraryToDisplay(myLibrary);
-    console.log(myLibrary);
 }
 
 function addLibraryToDisplay(myLibrary){
@@ -74,6 +79,9 @@ function addLibraryToDisplay(myLibrary){
             modalAuthor.textContent = `Author: ${book.author}`
             modalPages.textContent = `# of Pages: ${book.pages}`
             modalBookCover.setAttribute("src", book.book_url)
+            
+            readSwitch.checked = book.read
+            currentBookUUID = book.uuid
             bookInfoModal.showModal();
         })
 
@@ -96,3 +104,14 @@ function addLibraryToDisplay(myLibrary){
         bookContainer.appendChild(newCard)
     })
 }
+
+readSwitch.addEventListener("change", () => {
+    if (currentBookUUID) {
+        const book = myLibrary.find(b => b.uuid === currentBookUUID);
+        if (book) {
+            book.toggleRead();
+            addLibraryToDisplay(myLibrary);
+        }
+    }
+    console.log(myLibrary)
+});
