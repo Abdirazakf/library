@@ -38,7 +38,7 @@ function Book(title,author,pages,book_url,read) {
     this.pages = pages;
     this.book_url = book_url;
     this.read = read;
-    this.uuid = self.crypto.randomUUID()
+    this.uuid = 'a' + self.crypto.randomUUID()
 }
 
 function addBookToLibrary(){
@@ -79,7 +79,18 @@ function addLibraryToDisplay(myLibrary){
 
         delButton.addEventListener("click", (event) => {
             event.stopPropagation()
+            let targetUUID = newCard.getAttribute("data-index-number")
+            let removedCard = document.querySelector(`[data-index-number=${targetUUID}]`)
+            removedCard.remove();
+
+            let index = myLibrary.findIndex(book => book.uuid === targetUUID)
+
+            if (index !== -1){
+                myLibrary.splice(index,1)
+            }
             
+            console.log(myLibrary)
+            console.log(targetUUID)
         })
 
         deleteButtonContainer.appendChild(delButton)
