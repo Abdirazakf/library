@@ -77,6 +77,11 @@ function addLibraryToDisplay(myLibrary){
             bookInfoModal.showModal();
         })
 
+        delButton.addEventListener("click", (event) => {
+            event.stopPropagation()
+            
+        })
+
         deleteButtonContainer.appendChild(delButton)
         newCard.appendChild(deleteButtonContainer)
         newCard.appendChild(bookTitle)
