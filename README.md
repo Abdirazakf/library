@@ -114,5 +114,3 @@ function Book(title, author, pages, book_url, read) {
 - `toggleRead()`: Prototype method to toggle a book's read status
 
 ---
-4. Push to your fork and open a pull request
-
