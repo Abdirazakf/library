@@ -114,17 +114,5 @@ function Book(title, author, pages, book_url, read) {
 - `toggleRead()`: Prototype method to toggle a book's read status
 
 ---
-
-## Contributing
-
-1. Fork this repository  
-2. Create a new branch:  
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
-3. Make your changes and commit:  
-   ```bash
-   git commit -m "Add new dashboard widget"
-   ```
 4. Push to your fork and open a pull request
 
